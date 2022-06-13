@@ -32,20 +32,12 @@ export class App extends LitElement {
   render() {
     const { pathname } = location;
     return html` <header>
-        <div class="container" id="container" role="container">
-          <div class="header-inner">
-            ${Logo()}
-            <nav-bar label="My Growth Notepad"></nav-bar>
-          </div>
-        </div>
       </header>
 
       <!-- The main content is added / removed dynamically by the router -->
       <main role="main"></main>
 
       <footer>
-        <div class="container">${ShareSection()} ${MadeWithLove()}</div>
-        ${HiringButton()}
         <a hidden id="link"><a>
       </footer>`;
   }
