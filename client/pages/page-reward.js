@@ -14,12 +14,6 @@ export class PageReward extends PageElement {
         <script></script>
 
         <style>
-          @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600;700&display=swap');
-
-          * {
-            font-family: 'Open Sans';
-          }
-
           body {
             padding: 10px;
           }
@@ -30,7 +24,7 @@ export class PageReward extends PageElement {
           }
 
           .art {
-            width: 100px;
+            width: 150px;
             margin: auto;
             position: relative;
             top: 60px;
@@ -41,9 +35,9 @@ export class PageReward extends PageElement {
 
           .art svg {
             position: absolute;
-            width: 30px;
+            width: 35px;
             left: 50%;
-            top: 30px;
+            top: 50px;
             transform: translateX(-50%);
           }
 
