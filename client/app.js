@@ -31,7 +31,7 @@ export class App extends LitElement {
   /** @inheritdoc */
   render() {
     const { pathname } = location;
-    return html` <header>
+    return html` <header class="card">
       </header>
 
       <!-- The main content is added / removed dynamically by the router -->
