@@ -1,4 +1,5 @@
 import { LitElement, html, css } from './components/base';
+import { User } from './components/user';
 import {
   ShareSection,
   MadeWithLove,
@@ -32,6 +33,15 @@ export class App extends LitElement {
   render() {
     const { pathname } = location;
     return html` <header class="card">
+        <a class="logo">
+          ${Logo()}
+          Forter 
+          <b> Onboarding </b>
+        </a>
+        <a class="user">
+          Liron G
+          ${User()}
+        </a>
       </header>
 
       <!-- The main content is added / removed dynamically by the router -->

@@ -5,7 +5,13 @@
 }
 
 body {
+  --fc-background: #fafafa;
+  --fc-light: white;
+
   padding: 10px;
+  padding: 10px;
+  background-color: var(--fc-background);
+;
 }
 
 .container {
@@ -31,11 +37,22 @@ body {
   transform: translateX(-50%);
 }
 
-.score-container, .card {
-  background-color: white;
+.score-container,
+.card {
+  background-color: var(--fc-light);
   box-shadow: #3d414424 0 0 15px 0;
   border-radius: 10px;
   animation: 1s to-top cubic-bezier(0.18, 1.51, 0.34, 0.9);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 16px;
+}
+
+.user {
+  float: right;
 }
 
 .score-container .copy,
@@ -64,7 +81,7 @@ body {
   border: none;
   padding: 7px 20px;
   border-radius: 100px;
-  color: white;
+  color: var(--fc-light);
   font-size: 14px;
   box-shadow: 0px 4.528800010681152px 3.623039960861206px 0px
     rgba(0, 71, 255, 0.0244);
@@ -137,7 +154,7 @@ body {
 }
 
 .score-container {
-  background-color: white;
+  background-color: var(--fc-light);
   box-shadow: #3d414424 0 0 15px 0;
   border-radius: 10px;
   animation: 1s to-top cubic-bezier(0.18, 1.51, 0.34, 0.9);
