@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>onborder</title>
+
+    <base href="/" />
+
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script checks to see if a redirect is present in the query string,
+      // converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      const [, base = '', preview = ''] = location.pathname.split('/');
+
+      if (preview.includes('deploy-preview')) {
+        document
+          .querySelector('base')
+          .setAttribute('href', `/${base}/${preview}/`);
+      } else if (location.href.includes('github.io')) {
+        document.querySelector('base').setAttribute('href', `/${base}/`);
+      }
+    </script>
+
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="images/favicon.svg" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="description"
+      content="Ideas and concepts for how to level up as a Software Engineer"
+    />
+    <meta
+      name="keywords"
+      content="Forter, Career, Careers, Job, Work, Engineer, Engineering, R&D, RND, software, technology, fintech, financial, onborder, engineering, dojo.engineering, career, ladder, roles"
+    />
+    <meta name="author" content="Forter" />
+    <meta name="copyright" content="Forter" />
+    <meta name="robots" content="follow" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+
+    <meta property="og:site_name" content="onborder Engineering" />
+    <meta property="og:title" content="onborder Engineering" />
+
+    <meta
+      property="og:image"
+      content="http://onborder.engineering/images/logo.png"
+    />
+    <meta property="og:image:alt" content="onborder logo" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:url" content="http://onborder.engineering" />
+
+    <link rel="canonical" href="http://onborder.engineering" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta
+      property="og:description"
+      content="Ideas, concepts, frameworks and resources that can help you improve your skills, expand your knowledge and make bigger impact"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Ideas, concepts, frameworks and resources that can help you improve your skills, expand your knowledge and make bigger impact"
+    />
+
+    <meta name="theme-color" content="#000000" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="onborder Engineering" />
+    <link rel="apple-touch-icon" href="images/manifest/icon-512x512.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;900&display=swap"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <link rel="preload" as="style" href="index.css" />
+    <link rel="stylesheet" href="index.css" onload="this.media='all'" />
+  </head>
+  <body>
+    <app-index></app-index>
+    <noscript>Please enable JavaScript to view this websiter!</noscript>
+    <!-- End Single Page Apps for GitHub Pages -->
+    <script type="module" src="client/app.js"></script>
+  </body>
+</html>

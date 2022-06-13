@@ -1,0 +1,10 @@
+checks:
+  method-lines:
+    enabled: false
+    config:
+      threshold: 25
+exclude_patterns:
+  - packages/**/*.spec.js
+  - packages/**/.babelrc.js
+  - packages/**/*.d.ts
+  - client/services/career-ladder.js
