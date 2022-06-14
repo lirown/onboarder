@@ -59,42 +59,28 @@ export class PageOverview extends PageElement {
       <section class="status-container">
         <img src="images/animated-icon.svg" class="loader" />
         <div>
-          <div class="card status-page">
-            <status-chart-box
-              .config=${this.dayCounter === 0
-                ? this.getEmptyValues()
-                : this.currentData[0]}
-              title="${this.data[0].title}"
-              api="${this.data[0].api}"
-            ></status-chart-box>
-          </div>
-          <div class="card status-page">
-            <status-chart-box
-              .config=${this.dayCounter === 0
-                ? this.getEmptyValues()
-                : this.currentData[1]}
-              title="${this.data[1].title}"
-              api="${this.data[1].api}"
-            ></status-chart-box>
-          </div>
-          <div class="card status-page">
-            <status-chart-box
-              .config=${this.dayCounter === 0
-                ? this.getEmptyValues()
-                : this.currentData[2]}
-              title="${this.data[2].title}"
-              api="${this.data[2].api}"
-            ></status-chart-box>
-          </div>
-          <div class="card status-page">
-            <status-chart-box
-              .config=${this.dayCounter === 0
-                ? this.getEmptyValues()
-                : this.currentData[3]}
-              title="${this.data[3].title}"
-              api="${this.data[3].api}"
-            ></status-chart-box>
-          </div>
+          ${[...Array(4).keys()].map((x, i) => {
+            return html`
+              <div
+                class="card status-page"
+                style="animation-delay: ${2500 + i * 100}ms;"
+                }
+              >
+                <status-chart-box
+                  .config=${this.dayCounter === 0
+                    ? this.getEmptyValues()
+                    : this.currentData[i]}
+                  title="${this.data[i].title}"
+                  api="${this.data[i].api}"
+                ></status-chart-box>
+
+                <button>
+                  <div class="error-icon">!</div>
+                  Something isn't right
+                </button>
+              </div>
+            `;
+          })}
         </div>
         <fc-button @click=${() => this.updateStep(-1)}>Prev Day</fc-button>
         <fc-button @click=${() => this.updateStep(1)}>Next Day</fc-button>

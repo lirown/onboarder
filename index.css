@@ -5,8 +5,11 @@
 }
 
 body {
-  --fc-background: #fafafa;
-  --fc-light: white;
+  --fc-background: #0e0e23;
+  --fc-light: #141834;
+  --fc-secondary-light: #212752;
+  --fc-button: #4255d4;
+  color: white;
 
   padding: 10px;
   padding: 10px;
@@ -25,7 +28,7 @@ body {
 }
 
 .error-icon {
-  background-color: rgb(255, 202, 202);
+  background-color: #556af8;
   height: 15px;
   width: 15px;
   border-radius: 100px;
@@ -36,14 +39,19 @@ body {
 }
 
 button {
+  color: white;
+  background-color: var(--fc-button);
   border: none;
   border-radius: 100px;
   display: inline-flex;
   align-items: center;
   gap: 5px;
   padding: 5px;
-  background-color: #f4f4f4;
-  animation: scale-in 1s 2.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation: scale-in 1s .2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.status-page button {
+  animation-delay: 2.5s;
 }
 
 @keyframes scale-up {
@@ -94,7 +102,7 @@ app-index {
   box-shadow: #3d414424 0 10px 15px 0;
   border-radius: 10px;
   opacity: 0;
-  animation: 1s to-top forwards cubic-bezier(0.18, 1.51, 0.34, 0.9);
+  animation: 1s to-top cubic-bezier(0.18, 1.51, 0.34, 0.9) forwards;
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -128,7 +136,6 @@ app-index {
 }
 
 .action-button {
-  background-color: #00a5ff;
   outline: none;
   border: none;
   padding: 7px 20px;
@@ -193,7 +200,7 @@ body {
   position: relative;
   top: 60px;
   margin-bottom: 100px;
-  animation: 1s to-top cubic-bezier(0.18, 1.51, 0.34, 0.9);
+  animation: 1s to-top forwards cubic-bezier(0.18, 1.51, 0.34, 0.9);
   animation: idle 2s alternate infinite cubic-bezier(0.52, 0, 0.28, 1);
 }
 
@@ -209,7 +216,7 @@ body {
   background-color: var(--fc-light);
   box-shadow: #3d414424 0 0 15px 0;
   border-radius: 10px;
-  animation: 1s to-top cubic-bezier(0.18, 1.51, 0.34, 0.9);
+  animation: 1s to-top forwards cubic-bezier(0.18, 1.51, 0.34, 0.9);
 }
 
 .score-container .copy {
@@ -235,7 +242,6 @@ body {
 }
 
 .action-button {
-  background-color: #00a5ff;
   outline: none;
   border: none;
   padding: 7px 20px;

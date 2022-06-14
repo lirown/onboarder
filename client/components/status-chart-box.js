@@ -24,7 +24,7 @@ export class StatusChartBox extends LitElement {
       .status-chart {
         display: flex;
         justify-content: space-between;
-        background-color: #fafafa;
+        background-color: var(--fc-secondary-light);
         width: 100%;
         padding: 10px;
         border-radius: 8px;
