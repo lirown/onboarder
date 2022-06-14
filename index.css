@@ -356,3 +356,31 @@ body {
 .generate-guide:hover {
   cursor: pointer;
 }
+
+.guide-wrapper {
+  display: flex;
+}
+
+.left-block {
+  width: 40%;
+}
+
+.right-block {
+  width: 55%;
+}
+
+.divider {
+  width: 5%;
+}
+
+.title-header {
+  margin-bottom: 85px;
+}
+
+.text-block {
+  padding: 3px 10px;
+  background-color: #36445f;
+  border-radius: 10px;
+  margin-top: 250px;
+  margin-bottom: 200px;
+}
