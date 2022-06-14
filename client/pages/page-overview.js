@@ -41,7 +41,7 @@ export class PageOverview extends PageElement {
     return html`
       <style>
         .status-page {
-          margin: 20px 0px;
+          margin: 40px 0px;
           display: flex;
           gap: 7px;
           flex-direction: column;
