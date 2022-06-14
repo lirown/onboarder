@@ -1,5 +1,4 @@
 import { LitElement, html, css, property } from 'lit-element';
-import { getGeneratedData } from '../helpers.js/mockData';
 
 export class StatusChartBox extends LitElement {
   static get properties() {
@@ -31,7 +30,7 @@ export class StatusChartBox extends LitElement {
         border-radius: 8px;
       }
 
-      .status-bar {
+      status-bar {
         background-color: gray;
         width: 2.5%;
         height: 70px;
@@ -42,23 +41,9 @@ export class StatusChartBox extends LitElement {
         padding: 20px;
       } */
 
-      .status-bar:hover {
-        transform: scale(1.2);
-        transition: transform 0.3s;
-        cursor: pointer;
-      }
-
       .title {
         font-size: 16px;
         color: #555;
-      }
-
-      .success {
-        background-color: #5ff25f;
-      }
-
-      .partial {
-        background-color: #f0f12f;
       }
     `;
   }
@@ -70,13 +55,7 @@ export class StatusChartBox extends LitElement {
       <div class="status-page">
         <div class="status-chart">
           ${this.config.status.map(({ type }) => {
-            if (type === 'success') {
-              return html`<div class="status-bar success"></div>`;
-            } else if (type === 'partial') {
-              return html`<div class="status-bar partial"></div>`;
-            } else {
-              return html`<div class="status-bar "></div>`;
-            }
+            return html`<status-bar statusType=${type}></status-bar>`;
           })}
         </div>
       </div>
