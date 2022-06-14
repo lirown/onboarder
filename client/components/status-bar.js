@@ -10,10 +10,18 @@ export class StatusBar extends LitElement {
   static get styles() {
     return css`
       .status-bar {
-        background-color: gray;
+        background-image: radial-gradient(
+          circle,
+          rgba(187, 187, 187, 1) 0%,
+          rgba(92, 92, 92, 1) 100%
+        );
+        background-size: 300% 300%;
+        background-position: -200% -200%;
         border-radius: 3px;
         width: 100%;
         height: 100%;
+        background-size: 300% 300%;
+        background-position: -200% -200%;
       }
 
       .status-bar:hover {
@@ -23,11 +31,19 @@ export class StatusBar extends LitElement {
       }
 
       .success {
-        background-color: #5ff25f;
+        background-image: radial-gradient(
+          circle,
+          rgba(90, 246, 75, 1) 0%,
+          rgba(2, 176, 113, 1) 100%
+        );
       }
 
       .partial {
-        background-color: #f0f12f;
+        background-image: radial-gradient(
+          circle,
+          rgba(246, 238, 75, 1) 0%,
+          rgba(246, 159, 65, 1) 100%
+        );
       }
     `;
   }
