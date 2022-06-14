@@ -28,11 +28,11 @@
     "type-checking": "tsc --noEmit && npm run lit:type-checking"
   },
   "dependencies": {
-    "@forter/button": "^5.4.0",
+    "@forter/button": "^5.6.0",
     "@forter/checkbox": "^3.5.0",
     "@forter/input": "^3.9.1",
     "@forter/radio": "^3.3.1",
-    "@forter/styles": "^4.9.0",
+    "@forter/styles": "^4.9.1",
     "@forter/tooltip": "^2.1.0",
     "@vaadin/router": "^1.7.4",
     "bound-decorator": "^1.1.0",

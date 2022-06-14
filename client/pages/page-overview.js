@@ -16,16 +16,17 @@ export class PageOverview extends PageElement {
     this.currentData = [];
 
     this.dayCounter = 0;
-    setInterval(() => {
-      if (this.dayCounter < 30) {
-        this.dayCounter++;
-      }
-      this.currentData[0] = this.getCurrentDay(0);
-      this.currentData[1] = this.getCurrentDay(1);
-      this.currentData[2] = this.getCurrentDay(2);
-      this.currentData[3] = this.getCurrentDay(3);
-      this.requestUpdate();
-    }, 1000);
+  }
+
+  updateStep(direction) {
+    if (this.dayCounter < 30) {
+      this.dayCounter += direction;
+    }
+    this.currentData[0] = this.getCurrentDay(0);
+    this.currentData[1] = this.getCurrentDay(1);
+    this.currentData[2] = this.getCurrentDay(2);
+    this.currentData[3] = this.getCurrentDay(3);
+    this.requestUpdate();
   }
 
   getCurrentDay(index) {
@@ -37,8 +38,13 @@ export class PageOverview extends PageElement {
     return values;
   }
 
+  getEmptyValues() {
+    return {
+      status: Array.from(Array(30).keys()).map((x) => ({ type: null }))
+    };
+  }
+
   render() {
-    debugger;
     return html`
       <style>
         .status-page {
@@ -54,33 +60,43 @@ export class PageOverview extends PageElement {
         <div>
           <div class="card status-page">
             <status-chart-box
-              .config=${this.currentData[0]}
+              .config=${this.dayCounter === 0
+                ? this.getEmptyValues()
+                : this.currentData[0]}
               title="${this.data[0].title}"
               api="${this.data[0].api}"
             ></status-chart-box>
           </div>
           <div class="card status-page">
             <status-chart-box
-              .config=${this.currentData[1]}
+              .config=${this.dayCounter === 0
+                ? this.getEmptyValues()
+                : this.currentData[1]}
               title="${this.data[1].title}"
               api="${this.data[1].api}"
             ></status-chart-box>
           </div>
           <div class="card status-page">
             <status-chart-box
-              .config=${this.currentData[2]}
+              .config=${this.dayCounter === 0
+                ? this.getEmptyValues()
+                : this.currentData[2]}
               title="${this.data[2].title}"
               api="${this.data[2].api}"
             ></status-chart-box>
           </div>
           <div class="card status-page">
             <status-chart-box
-              .config=${this.currentData[3]}
+              .config=${this.dayCounter === 0
+                ? this.getEmptyValues()
+                : this.currentData[3]}
               title="${this.data[3].title}"
               api="${this.data[3].api}"
             ></status-chart-box>
           </div>
         </div>
+        <fc-button @click=${() => this.updateStep(-1)}>Prev Day</fc-button>
+        <fc-button @click=${() => this.updateStep(1)}>Next Day</fc-button>
       </section>
     `;
   }

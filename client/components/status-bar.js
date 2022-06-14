@@ -23,11 +23,11 @@ export class StatusBar extends LitElement {
       }
 
       .success {
-        background-color: #5ff25f;
+        background-color: #8bed8b;
       }
 
       .partial {
-        background-color: #f0f12f;
+        background-color: #f7ed7af5;
       }
     `;
   }

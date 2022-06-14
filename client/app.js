@@ -1,5 +1,6 @@
 import { LitElement, html, css } from './components/base';
 import { User } from './components/user';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import {
   ShareSection,
   MadeWithLove,
@@ -43,6 +44,7 @@ export class App extends LitElement {
           ${User()}
         </a>
       </header>
+      <portal-style></portal-style>
 
       <!-- The main content is added / removed dynamically by the router -->
       <main role="main"></main>
