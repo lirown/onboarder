@@ -1,6 +1,7 @@
 import { html } from '../components/base';
 import { PageElement } from '../components';
 import { getGeneratedData } from './../helpers.js/mockData';
+import { redirect } from '../services/router';
 
 /**
  * Overview Page - Dashboard to show status of the Onboarding.
@@ -49,6 +50,14 @@ export class PageOverview extends PageElement {
     this.requestUpdate();
   }
 
+  onStartClick() {
+    this.clickedOnStart = window.localStorage.getItem('clickedOnStart');
+    if (this.clickedOnStart === 'true') {
+      return redirect('guide');
+    }
+    return redirect('integration');
+  }
+
   render() {
     return html`
       <style>
@@ -63,8 +72,8 @@ export class PageOverview extends PageElement {
 
       <section class="status-container">
         <img src="images/animated-icon.svg" class="loader" />
-        <div>
-          ${[...Array(4).keys()].map((x, i) => {
+        <div class="status-page-wrapper">
+          ${[...Array(6).keys()].map((x, i) => {
             return html`
               <div
                 class="card status-page"
@@ -80,17 +89,33 @@ export class PageOverview extends PageElement {
                   @bar-toggle="${this.toggleTimeline}"
                 ></status-chart-box>
 
-                <button>
+                <button @click="${this.onStartClick}">
                   <div class="error-icon">!</div>
-                  Something isn't right
+                  Go to the guide!
                 </button>
               </div>
             `;
           })}
+          <span class="navigation" style="animation-delay: 2500ms;">
+            <button
+              style="width:100px"
+              class="right"
+              @click="${() => this.updateStep(1)}"
+            >
+              <div class="error-icon">></div>
+              Next
+            </button>
+            <button
+              style="width:100px"
+              class="right"
+              @click="${() => this.updateStep(-1)}"
+            >
+              <div class="error-icon"><</div>
+              Previous
+            </button>
+          </span>
         </div>
         <status-timeline ?open="${this.timelineOpen}"></status-timeline>
-        <fc-button @click=${() => this.updateStep(-1)}>Prev Day</fc-button>
-        <fc-button @click=${() => this.updateStep(1)}>Next Day</fc-button>
       </section>
     `;
   }

@@ -9,6 +9,7 @@ import {
   NavButton,
   NavDropdownItem
 } from './components';
+import { redirect } from './services/router';
 
 import { attachRouter } from './services/router';
 import '@forter/checkbox';
@@ -37,7 +38,7 @@ export class App extends LitElement {
   render() {
     const { pathname } = location;
     return html` <header class="card">
-        <a class="logo">
+        <a class="logo" @click="${() => redirect('home')}">
           ${Logo()}
           Forter 
           <b> Onboarding </b>

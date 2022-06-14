@@ -1,5 +1,7 @@
 import { html, css } from '../components/base';
 import { PageElement } from '../components';
+import { redirect } from '../services/router';
+
 
 const code = `
 // This example is built using express
@@ -427,11 +429,10 @@ export class PageGuide extends PageElement {
 
   render() {
     return html`
-      <section class="not-found">
-        <h1>Guide</h1>
+      <section class="status-container card">
+        <img src="images/animated-icon.svg" class="loader" />
         <div class="guide-wrapper">
           <div class="left-block">
-            <h3 class="title-header">Section 1</h3>
             <div class="text-block">
               <h4>Prepare your API key</h4>
               <p>
@@ -478,11 +479,10 @@ export class PageGuide extends PageElement {
           </div>
           <div class="divider"></div>
           <div class="right-block">
-            <h3>Code Section</h3>
             <fc-tabs>
               <fc-link slot="tab">server.js</fc-link> 
-              <fc-link slot="tab">merchant payload</fc-link>
-              <fc-link slot="tab">forter payload</fc-link>
+              <fc-link slot="tab">forter.json</fc-link>
+              <fc-link slot="tab">merchant.json</fc-link>
               <section slot="section">
                 <fc-code-block language="javascript">${code}</fc-code-block>
               </section> 
@@ -495,6 +495,13 @@ export class PageGuide extends PageElement {
             </fc-tabs>
           </div>
         </div>
+        <button
+          class="right"
+          @click="${() => redirect('overview')}">
+          <div class="error-icon">!</div>
+          Go to dashboard!  
+        </button>
+
       </section>
     `;
   }
