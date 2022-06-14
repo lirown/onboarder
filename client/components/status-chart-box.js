@@ -3,7 +3,9 @@ import { LitElement, html, css, property } from 'lit-element';
 export class StatusChartBox extends LitElement {
   static get properties() {
     return {
-      title: { type: String }
+      title: { type: String },
+      api: { type: String },
+      config: { type: Object }
     };
   }
   static get styles() {
@@ -31,7 +33,7 @@ export class StatusChartBox extends LitElement {
       status-bar {
         background-color: gray;
         width: 2.5%;
-        height: 40px;
+        height: 70px;
         border-radius: 3px;
       }
 
@@ -49,11 +51,12 @@ export class StatusChartBox extends LitElement {
   render() {
     return html`
       <div class="title">${this.title}</div>
+      <div class="title">${this.api}</div>
       <div class="status-page">
         <div class="status-chart">
-          ${Array.from(Array(30).keys()).map(
-            (x) => html`<status-bar></status-bar>`
-          )}
+          ${this.config.status.map(({ type }) => {
+            return html`<status-bar statusType=${type}></status-bar>`;
+          })}
         </div>
       </div>
     `;

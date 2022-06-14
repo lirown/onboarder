@@ -3,6 +3,7 @@ import { LitElement, html, css, property } from 'lit-element';
 export class StatusBar extends LitElement {
   static get properties() {
     return {
+      statusType: { type: String },
       title: { type: String }
     };
   }
@@ -20,11 +21,29 @@ export class StatusBar extends LitElement {
         transition: transform 0.3s;
         cursor: pointer;
       }
+
+      .success {
+        background-color: #5ff25f;
+      }
+
+      .partial {
+        background-color: #f0f12f;
+      }
     `;
   }
 
+  getClass() {
+    if (this.statusType === 'success') {
+      return `status-bar success`;
+    } else if (this.statusType === 'partial') {
+      return `status-bar partial`;
+    } else {
+      return `status-bar`;
+    }
+  }
+
   render() {
-    return html`<div class="status-bar"></div>`;
+    return html`<div class="${this.getClass()}"></div>`;
   }
 }
 customElements.define('status-bar', StatusBar);
