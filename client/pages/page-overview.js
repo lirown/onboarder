@@ -44,6 +44,11 @@ export class PageOverview extends PageElement {
     };
   }
 
+  toggleTimeline(event) {
+    this.timelineOpen = !this.timelineOpen;
+    this.requestUpdate();
+  }
+
   render() {
     return html`
       <style>
@@ -72,6 +77,7 @@ export class PageOverview extends PageElement {
                     : this.currentData[i]}
                   title="${this.data[i].title}"
                   api="${this.data[i].api}"
+                  @bar-toggle="${this.toggleTimeline}"
                 ></status-chart-box>
 
                 <button>
@@ -82,6 +88,7 @@ export class PageOverview extends PageElement {
             `;
           })}
         </div>
+        <status-timeline ?open="${this.timelineOpen}"></status-timeline>
         <fc-button @click=${() => this.updateStep(-1)}>Prev Day</fc-button>
         <fc-button @click=${() => this.updateStep(1)}>Next Day</fc-button>
       </section>
