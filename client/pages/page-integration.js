@@ -21,7 +21,7 @@ export class PageIntegration extends PageElement {
 
   render() {
     return html`
-      <section class="not-found">
+      <section class="not-found to-top">
         <h1>Paste your payload:</h1>
         <div class="integration">
           <textarea

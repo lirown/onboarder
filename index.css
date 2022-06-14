@@ -16,6 +16,11 @@ body {
   background-color: var(--fc-background);
 }
 
+.high {
+  box-shadow: var(--fc-button) 0 0 0 5px;
+  transform: scale(1.1);
+}
+
 .loader {
   width: 100px;
   margin: auto;
@@ -158,6 +163,11 @@ app-index {
   text-align: center;
   opacity: 0;
   animation: 1s 0.4s to-top forwards cubic-bezier(0.18, 1.51, 0.34, 0.9);
+}
+
+.to-top {
+  opacity: 0;
+  animation: 1s 0.2s to-top forwards cubic-bezier(0.18, 1.51, 0.34, 0.9);
 }
 
 .highlighted-text {
@@ -386,4 +396,5 @@ body {
   border-radius: 10px;
   margin-top: 250px;
   margin-bottom: 200px;
+  transition: .7s cubic-bezier(0.18, 1.51, 0.34, 0.9);
 }
