@@ -1,5 +1,4 @@
 import { LitElement, html, css, property } from 'lit-element';
-import { animate } from '@lit-labs/motion';
 
 export class StatusBar extends LitElement {
   static get properties() {
@@ -13,23 +12,26 @@ export class StatusBar extends LitElement {
     return css`
       .status-bar {
         transition: transform 0.3s;
+        border-radius: 3px;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      .status-bar,
+      .card .back {
         background-image: radial-gradient(
           circle,
           rgba(187, 187, 187, 1) 0%,
           rgba(92, 92, 92, 1) 100%
         );
-        background-size: 300% 300%;
-        background-position: -200% -200%;
-        border-radius: 3px;
-        width: 100%;
-        height: 100%;
+
         background-size: 300% 300%;
         background-position: -200% -200%;
       }
 
       .shifted {
         transform: scale(1.2);
-        cursor: pointer;
       }
 
       .success {
@@ -47,6 +49,54 @@ export class StatusBar extends LitElement {
           rgba(246, 159, 65, 1) 100%
         );
       }
+
+      label {
+        font-size: 50px;
+        -webkit-perspective: 100px;
+        perspective: 100px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      .card {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transition: all 600ms;
+        transition: all 600ms;
+        z-index: 20;
+      }
+
+      .card div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 2px;
+      }
+
+      .card div:last-of-type {
+        color: #fff;
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+      }
+
+      input {
+        display: none;
+      }
+
+      :checked + .card {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+      }
     `;
   }
 
@@ -61,7 +111,13 @@ export class StatusBar extends LitElement {
   }
 
   render() {
-    return html`<div @click="${this.toggle}" class="${this.getClass()}"></div>`;
+    return html`<label>
+      <input type="checkbox" />
+      <div class="card">
+        <div class="${this.getClass()}"></div>
+        <div class="${this.getClass()}"></div>
+      </div>
+    </label>`;
   }
 
   toggle() {

@@ -31,7 +31,6 @@ export class StatusChartBox extends LitElement {
       }
 
       status-bar {
-        background-color: gray;
         width: 2.5%;
         height: 70px;
         border-radius: 3px;
