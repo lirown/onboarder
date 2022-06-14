@@ -47,6 +47,7 @@ button {
   align-items: center;
   gap: 5px;
   padding: 5px;
+  cursor: pointer;
   animation: scale-in 1s .2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
 }
 
@@ -139,6 +140,7 @@ app-index {
   outline: none;
   border: none;
   padding: 7px 20px;
+  cursor: pointer;
   border-radius: 100px;
   color: var(--fc-light);
   font-size: 14px;
@@ -247,6 +249,7 @@ body {
   padding: 7px 20px;
   border-radius: 100px;
   color: white;
+  cursor: pointer;
   font-size: 14px;
   box-shadow: 0px 4.528800010681152px 3.623039960861206px 0px
     rgba(0, 71, 255, 0.0244);

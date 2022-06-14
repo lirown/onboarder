@@ -1,5 +1,6 @@
 import { html } from '../components/base';
 import { PageElement } from '../components';
+import { redirect } from '../services/router';
 
 /**
  * Reward Page - Dashboard to show status of the Onboarding.
@@ -7,6 +8,15 @@ import { PageElement } from '../components';
  * @element page-reward
  */
 export class PageReward extends PageElement {
+  constructor() {
+    super();
+    this.clickedOnStart = window.localStorage.getItem('clickedOnStart');
+  }
+
+  onStartClick() {
+    window.localStorage.setItem('clickedOnStart', 'true');
+    return redirect('integration');
+  }
   /** @inheritdoc */
   render() {
     return html`
@@ -76,12 +86,21 @@ export class PageReward extends PageElement {
             <img src="images/rewards.svg" alt="" srcset="" />
           </div>
           <section class="copy">
-            <h3 class="title">You're almost there!</h3>
+            <h3 class="title">
+              ${this.clickedOnStart !== 'true'
+                ? 'Welcome'
+                : `You're almost there!`}
+            </h3>
             <p class="description">
-              Keep adding data points in order to achieve superior fraud
-              detection.*
+              ${this.clickedOnStart !== 'true'
+                ? 'Finish the Forter integration in 30 days to win a reward!'
+                : 'Keep adding data points in order to achieve superior fraud detection.*'}
             </p>
-            <button class="action-button">Call To Action</button>
+            <button @click=${this.onStartClick} class="action-button">
+              ${this.clickedOnStart === 'true'
+                ? 'Call To Action'
+                : `Let's start`}
+            </button>
           </section>
         </div>
 
