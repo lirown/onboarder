@@ -75,6 +75,20 @@ export const routes = [
     }
   },
   {
+    path: '/integration',
+    name: 'integration',
+    component: 'page-integration',
+    metadata: {
+      title: 'Integration',
+      description: null,
+      image: null
+    },
+    action: async () => {
+      await import('./pages/page-integration');
+      updateNavbar();
+    }
+  },
+  {
     path: '/guide',
     name: 'guide',
     component: 'page-guide',
@@ -88,7 +102,6 @@ export const routes = [
       updateNavbar();
     }
   },
-
   {
     path: '(.*)',
     name: 'not-found',
