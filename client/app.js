@@ -16,6 +16,9 @@ import '@forter/button';
 import '@forter/radio';
 import '@forter/tooltip';
 import '@forter/input';
+import '@forter/code-block';
+import '@forter/tabs';
+import '@forter/link';
 
 import './components/nav-bar.js';
 import './components/elastic-tab.js';
