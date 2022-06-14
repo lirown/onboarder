@@ -16,14 +16,22 @@ export class StatusBar extends LitElement {
         width: 100%;
         height: 100%;
         cursor: pointer;
-      }
 
-      .status-bar,
-      .card .back {
         background-image: radial-gradient(
           circle,
           rgba(187, 187, 187, 1) 0%,
           rgba(92, 92, 92, 1) 100%
+        );
+
+        background-size: 300% 300%;
+        background-position: -200% -200%;
+      }
+
+      .card .back {
+        background-image: radial-gradient(
+          circle,
+          rgb(111, 111, 111) 0%,
+          rgb(59, 59, 59) 100%
         );
 
         background-size: 300% 300%;
@@ -97,6 +105,16 @@ export class StatusBar extends LitElement {
         transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
       }
+
+      .data {
+        position: fixed;
+
+        top: 90vh;
+        left: 90vw;
+        background: blue;
+        height: 100px;
+        width: 100px;
+      }
     `;
   }
 
@@ -115,9 +133,9 @@ export class StatusBar extends LitElement {
       <input type="checkbox" />
       <div class="card">
         <div class="${this.getClass()}"></div>
-        <div class="${this.getClass()}"></div>
+        <div class="back"></div>
       </div>
-    </label>`;
+    </label> `;
   }
 
   toggle() {
