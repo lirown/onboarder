@@ -34,6 +34,7 @@
     "@forter/radio": "^3.3.1",
     "@forter/styles": "^4.9.0",
     "@forter/tooltip": "^2.1.0",
+    "@lit-labs/motion": "^1.0.2",
     "@vaadin/router": "^1.7.4",
     "bound-decorator": "^1.1.0",
     "firebase": "^6.0.0",
