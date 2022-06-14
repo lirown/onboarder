@@ -91,7 +91,7 @@ app-index {
 .score-container,
 .card {
   background-color: var(--fc-light);
-  box-shadow: #3d414424 0 0 15px 0;
+  box-shadow: #3d414424 0 10px 15px 0;
   border-radius: 10px;
   opacity: 0;
   animation: 1s to-top forwards cubic-bezier(0.18, 1.51, 0.34, 0.9);
