@@ -13,6 +13,52 @@ body {
   background-color: var(--fc-background);
 }
 
+.loader {
+  width: 100px;
+  margin: auto;
+  animation: scale-up .5s 2s cubic-bezier(0.58,-0.23, 0.89, 0.56) forwards;
+  position: absolute;
+  left: 50%;
+  top: 300px;
+  transform: translateX(-50%);
+  transform-origin: 65px center;
+}
+
+.error-icon {
+  background-color: rgb(255, 202, 202);
+  height: 15px;
+  width: 15px;
+  border-radius: 100px;
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  background-color: #f4f4f4;
+  animation: scale-in 1s 2.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+@keyframes scale-up {
+  to { transform: scale(4); opacity: 0; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(.8); opacity: 0; }
+}
+
+.status-container {
+  display: flex;
+  flex-direction: column;
+}
+
 app-index {
   max-width: 1200px;
   display: block;
@@ -47,7 +93,8 @@ app-index {
   background-color: var(--fc-light);
   box-shadow: #3d414424 0 0 15px 0;
   border-radius: 10px;
-  animation: 1s to-top cubic-bezier(0.18, 1.51, 0.34, 0.9);
+  opacity: 0;
+  animation: 1s to-top forwards cubic-bezier(0.18, 1.51, 0.34, 0.9);
   padding: 20px;
   margin-bottom: 20px;
 }
