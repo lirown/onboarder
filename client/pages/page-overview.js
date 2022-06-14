@@ -56,7 +56,8 @@ export class PageOverview extends PageElement {
         }
       </style>
 
-      <section>
+      <section class="status-container">
+        <img src="images/animated-icon.svg" class="loader" />
         <div>
           <div class="card status-page">
             <status-chart-box

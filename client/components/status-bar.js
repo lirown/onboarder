@@ -1,49 +1,71 @@
 import { LitElement, html, css, property } from 'lit-element';
+import { animate } from '@lit-labs/motion';
 
 export class StatusBar extends LitElement {
   static get properties() {
     return {
       statusType: { type: String },
-      title: { type: String }
+      title: { type: String },
+      shifted: { type: Boolean }
     };
   }
   static get styles() {
     return css`
       .status-bar {
-        background-color: gray;
+        transition: transform 0.3s;
+        background-image: radial-gradient(
+          circle,
+          rgba(187, 187, 187, 1) 0%,
+          rgba(92, 92, 92, 1) 100%
+        );
+        background-size: 300% 300%;
+        background-position: -200% -200%;
         border-radius: 3px;
         width: 100%;
         height: 100%;
+        background-size: 300% 300%;
+        background-position: -200% -200%;
       }
 
-      .status-bar:hover {
+      .shifted {
         transform: scale(1.2);
-        transition: transform 0.3s;
         cursor: pointer;
       }
 
       .success {
-        background-color: #8bed8b;
+        background-image: radial-gradient(
+          circle,
+          rgba(90, 246, 75, 1) 0%,
+          rgba(2, 176, 113, 1) 100%
+        );
       }
 
       .partial {
-        background-color: #f7ed7af5;
+        background-image: radial-gradient(
+          circle,
+          rgba(246, 238, 75, 1) 0%,
+          rgba(246, 159, 65, 1) 100%
+        );
       }
     `;
   }
 
   getClass() {
-    if (this.statusType === 'success') {
-      return `status-bar success`;
-    } else if (this.statusType === 'partial') {
-      return `status-bar partial`;
-    } else {
-      return `status-bar`;
-    }
+    const classes = ['status-bar'];
+
+    this.statusType === 'success' && classes.push('success');
+    this.statusType === 'partial' && classes.push('partial');
+    this.shifted && classes.push('shifted');
+
+    return classes.join(' ');
   }
 
   render() {
-    return html`<div class="${this.getClass()}"></div>`;
+    return html`<div @click="${this.toggle}" class="${this.getClass()}"></div>`;
+  }
+
+  toggle() {
+    this.shifted = !this.shifted;
   }
 }
 customElements.define('status-bar', StatusBar);
