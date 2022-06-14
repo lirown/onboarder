@@ -10,3 +10,4 @@ export { NavDropdownItem } from './nav-dropdown-item';
 export { ElasticTabs } from './elastic-tab';
 export { MadeWithLove } from './made-with-love';
 export { StatusChartBox } from './status-chart-box';
+export { StatusBar } from './status-bar';

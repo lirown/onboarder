@@ -1,15 +1,15 @@
-import { LitElement, html, css, property } from "lit-element";
+import { LitElement, html, css, property } from 'lit-element';
 
 export class StatusChartBox extends LitElement {
   static get properties() {
     return {
       title: { type: String }
-    }
+    };
   }
   static get styles() {
     return css`
       :host {
-        width:100%;
+        width: 100%;
         display: block;
       }
       .status-page {
@@ -28,7 +28,7 @@ export class StatusChartBox extends LitElement {
         border-radius: 8px;
       }
 
-      .status-bar {
+      status-bar {
         background-color: gray;
         width: 2.5%;
         height: 40px;
@@ -38,12 +38,6 @@ export class StatusChartBox extends LitElement {
       /* .chart-wrapper {
         padding: 20px;
       } */
-
-      .status-bar:hover {
-        transform: scale(1.2);
-        transition: transform 0.3s;
-        cursor: pointer;
-      }
 
       .title {
         font-size: 16px;
@@ -58,12 +52,11 @@ export class StatusChartBox extends LitElement {
       <div class="status-page">
         <div class="status-chart">
           ${Array.from(Array(30).keys()).map(
-            (x) => html`<div class="status-bar"></div>`
+            (x) => html`<status-bar></status-bar>`
           )}
         </div>
       </div>
     `;
   }
 }
-customElements.define("status-chart-box", StatusChartBox);
-
+customElements.define('status-chart-box', StatusChartBox);
