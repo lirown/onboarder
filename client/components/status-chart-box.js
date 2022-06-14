@@ -1,15 +1,18 @@
-import { LitElement, html, css, property } from "lit-element";
+import { LitElement, html, css, property } from 'lit-element';
+import { getGeneratedData } from '../helpers.js/mockData';
 
 export class StatusChartBox extends LitElement {
   static get properties() {
     return {
-      title: { type: String }
-    }
+      title: { type: String },
+      api: { type: String },
+      config: { type: Object }
+    };
   }
   static get styles() {
     return css`
       :host {
-        width:100%;
+        width: 100%;
         display: block;
       }
       .status-page {
@@ -31,7 +34,7 @@ export class StatusChartBox extends LitElement {
       .status-bar {
         background-color: gray;
         width: 2.5%;
-        height: 40px;
+        height: 70px;
         border-radius: 3px;
       }
 
@@ -49,21 +52,35 @@ export class StatusChartBox extends LitElement {
         font-size: 16px;
         color: #555;
       }
+
+      .success {
+        background-color: #5ff25f;
+      }
+
+      .partial {
+        background-color: #f0f12f;
+      }
     `;
   }
 
   render() {
     return html`
       <div class="title">${this.title}</div>
+      <div class="title">${this.api}</div>
       <div class="status-page">
         <div class="status-chart">
-          ${Array.from(Array(30).keys()).map(
-            (x) => html`<div class="status-bar"></div>`
-          )}
+          ${this.config.status.map(({ type }) => {
+            if (type === 'success') {
+              return html`<div class="status-bar success"></div>`;
+            } else if (type === 'partial') {
+              return html`<div class="status-bar partial"></div>`;
+            } else {
+              return html`<div class="status-bar "></div>`;
+            }
+          })}
         </div>
       </div>
     `;
   }
 }
-customElements.define("status-chart-box", StatusChartBox);
-
+customElements.define('status-chart-box', StatusChartBox);

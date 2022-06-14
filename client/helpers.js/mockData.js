@@ -171,3 +171,40 @@ export const orderStatusSolution = {
     }
   ]
 };
+
+export const getGeneratedData = () => {
+  const apis = [
+    {
+      title: 'Validation API',
+      api: '/validation'
+    },
+    {
+      title: 'Order Status API',
+      api: '/order/:id'
+    },
+    {
+      title: 'Claims API',
+      api: '/claims'
+    },
+    {
+      title: 'Historical Data',
+      api: '/history'
+    }
+  ];
+  for (let api of apis) {
+    api.status = Array.from(Array(30).keys()).map((x) => ({
+      type: [
+        'success',
+        'success',
+        'success',
+        'success',
+        null,
+        'partial',
+        'partial'
+      ][Math.floor(Math.random() * 7)],
+      insights: [],
+      ts: new Date()
+    }));
+  }
+  return apis;
+};
