@@ -11,4 +11,6 @@ export { ElasticTabs } from './elastic-tab';
 export { MadeWithLove } from './made-with-love';
 export { StatusChartBox } from './status-chart-box';
 export { StatusBar } from './status-bar';
+export { StatusTimeline } from './status-timeline';
+export { StatusItem } from './status-item';
 export { PortalStyle } from './portal-styles';

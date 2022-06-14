@@ -5,7 +5,8 @@ export class StatusBar extends LitElement {
     return {
       statusType: { type: String },
       title: { type: String },
-      shifted: { type: Boolean }
+      shifted: { type: Boolean },
+      checked: { type: Boolean }
     };
   }
   static get styles() {
@@ -130,7 +131,7 @@ export class StatusBar extends LitElement {
 
   render() {
     return html`<label>
-      <input type="checkbox" />
+      <input type="checkbox" @click="${this.lala}" />
       <div class="card">
         <div class="${this.getClass()}"></div>
         <div class="back"></div>
@@ -138,8 +139,16 @@ export class StatusBar extends LitElement {
     </label> `;
   }
 
-  toggle() {
-    this.shifted = !this.shifted;
+  lala(event) {
+    const checkbox = event.target;
+    this.checked = checkbox.checked;
+    this.dispatchEvent(
+      new CustomEvent('bar-toggle', {
+        detail: { checked: this.checked },
+        bubbles: true,
+        composed: true
+      })
+    );
   }
 }
 customElements.define('status-bar', StatusBar);
