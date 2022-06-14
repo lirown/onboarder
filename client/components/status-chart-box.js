@@ -51,7 +51,6 @@ export class StatusChartBox extends LitElement {
   render() {
     return html`
       <div class="title">${this.title}</div>
-      <div class="title">${this.api}</div>
       <div class="status-page">
         <div class="status-chart">
           ${this.config.status.map(({ type }) => {
