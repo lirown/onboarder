@@ -38,7 +38,6 @@ export class PageOverview extends PageElement {
   }
 
   render() {
-    debugger;
     return html`
       <style>
         .status-page {
