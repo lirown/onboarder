@@ -41,7 +41,7 @@
     "@lit-labs/motion": "^1.0.2",
     "@vaadin/router": "^1.7.4",
     "bound-decorator": "^1.1.0",
-    "firebase": "^6.0.0",
+    "canvas-confetti": "^1.5.1",
     "idb": "^6.0.0",
     "lit": "^2.0.0-rc.1",
     "prismjs": "^1.28.0",

@@ -187,6 +187,14 @@ export const getGeneratedData = () => {
       api: '/claims'
     },
     {
+      title: 'Login API',
+      api: '/login'
+    },
+    {
+      title: 'JS Snippet',
+      api: '/history'
+    },
+    {
       title: 'Historical Data',
       api: '/history'
     }

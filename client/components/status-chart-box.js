@@ -21,7 +21,7 @@ export class StatusChartBox extends LitElement {
         width: 100%;
       }
 
-      .status-chart {
+         .status-chart {
         display: flex;
         justify-content: space-between;
         background-color: var(--fc-secondary-light);
@@ -42,7 +42,7 @@ export class StatusChartBox extends LitElement {
 
       .title {
         font-size: 16px;
-        color: #555;
+        color: white;
       }
     `;
   }

@@ -8,7 +8,7 @@ import db from './services/database';
  */
 
 function updateNavbar() {
-  setTimeout(() => document.querySelector('nav-bar').requestUpdate(), 0);
+//  setTimeout(() => document.querySelector('nav-bar').requestUpdate(), 0);
 }
 
 /**

@@ -1,5 +1,8 @@
-import { app } from './firebase';
+//import { app } from './firebase';
 
+const app = {
+
+};
 /**
  * key to save uid of logged in user
  */

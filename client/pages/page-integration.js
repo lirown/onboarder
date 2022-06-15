@@ -39,15 +39,17 @@ export class PageIntegration extends PageElement {
         <div>
           <a href="${urlForName('guide')}">
             <button
+              style="margin-top:20px"
+              class="right"
               @click=${() => {
                 window.localStorage.setItem(
                   'integrationPayload',
                   this.integrationPayload
                 );
               }}
-              class="generate-guide"
             >
-              Generate Guide
+              <div class="error-icon"><</div>
+              Generate your guide
             </button>
           </a>
         </div>
