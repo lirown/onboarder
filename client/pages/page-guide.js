@@ -498,7 +498,6 @@ export class PageGuide extends PageElement {
             </div>
              <button
               class="right"
-              @click="${() => redirect('reward')}"
             >
               <div class="error-icon"><</div>
               Get your reward

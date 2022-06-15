@@ -29,6 +29,7 @@ export class PageHome extends PageElement {
                   <img
                     src="images/shirt.png"
                     width="250"
+                    style="margin-left:-80px"
                     alt=""
                     srcset=""
                     class="circle"

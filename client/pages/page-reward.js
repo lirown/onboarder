@@ -59,6 +59,7 @@ export class PageReward extends PageElement {
           <div class="art" style="width:350px;">
             <img
               src="images/shirt.png"
+              style="margin-left:20px"
               width="250"
               alt=""
               srcset=""
