@@ -97,7 +97,15 @@ export class PageOverview extends PageElement {
               </div>
             `;
           })}
-          <span class="navigation" style="animation-delay: 2500ms;">
+          <span class="navigation" style="opacity:0.1!important">
+
+            <button
+              class="right"
+               @click=${() => redirect('reward')}>
+              <div class="error-icon">+</div>
+              Get your reward </button>
+          </span>
+          <span class="navigation" style="opacity:0.1!important">
             <button
               style="width:100px"
               class="right"

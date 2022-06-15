@@ -8,7 +8,7 @@ const path = require("path");
 const express = require("express");
 const fetch = require("node-fetch");
 
-<mark class="highlight-block">const API_KEY = process.env.FORTER_API_KEY; // YOUR API KEY</mark>
+const API_KEY = process.env.FORTER_API_KEY; // YOUR API KEY
 const API_SECRET = process.env.FORTER_API_SECRET; // YOUR API KEY
 
 const FORTER_API_URL = "https://api-secure.forter.com/v2/orders/";
@@ -468,41 +468,30 @@ export class PageGuide extends PageElement {
             </div>
             
             <div class="text-block">
-              <h3>Add the Forter SDK as a dependency</h3>
-              <p>
-                To get started, add the Primer Web SDK to your checkout page. In this example, we will add the SDK using our CDN.
-              </p>
-              <p>
-                <h5>Add js snippet:</h5>
-                <fc-code-block language="javascript">
-                  //add snippet code
-                </fc-code-block>
-              </p>
-            </div>
-
-            <div class="text-block">
-              <h2>Create Order Request:</h2>
-              <p>
-                User forter Api to create order api with the following payload:
-              </p>
-              <fc-code-block language="javascript">
-                //add snippet code
-              </fc-code-block>
-            </div>
-
-            <div class="text-block">
               <h2>Hook your payment:</h2>
               <p>
-                In order to get a clear payment status, you can use our webhook and we will inform you.
+                In order to get a clear payment status, you need to implement.
               </p>
             </div>
+            <div class="text-block">
+              <h2>Hook your delivery:</h2>
+              <p>
+                In order to get a clear shipping status, you need to implement.
+              </p>
+            </div>
+
+            <div class="text-block">
+              <h2>Hook your cart items:</h2>
+              <p>
+                In order to get a clear understaing of your cart, you need to implement.
+              </p>
+            </div>
+
              <button
               class="right"
-            >
+               @click=${() => redirect('overview')}>
               <div class="error-icon"><</div>
-              Get your reward
-            </button>
-           
+              Check your integration status </button>
           </div>
           <div class="divider"></div>
           <div class="right-block">

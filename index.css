@@ -191,8 +191,7 @@ app-index {
 
 span.navigation {
   text-align: center;
-  opacity: 0;
-  animation: 2s 0.2s to-top forwards cubic-bezier(0.18, 1.51, 0.34, 0.9);
+  opacity: 0.2;
 }
 .to-top {
   opacity: 0;
