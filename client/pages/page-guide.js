@@ -1,7 +1,5 @@
 import { html, css } from '../components/base';
 import { PageElement } from '../components';
-import { redirect } from '../services/router';
-
 
 const code = `
 // This example is built using express
@@ -9,7 +7,7 @@ const path = require("path");
 const express = require("express");
 const fetch = require("node-fetch");
 
-const API_KEY = process.env.FORTER_API_KEY; // YOUR API KEY
+<mark class="highlight-block">const API_KEY = process.env.FORTER_API_KEY; // YOUR API KEY</mark>
 const API_SECRET = process.env.FORTER_API_SECRET; // YOUR API KEY
 
 const FORTER_API_URL = "https://api-secure.forter.com/v2/orders/";
@@ -415,6 +413,29 @@ const code3 = `
  * @element page-guide
  */
 export class PageGuide extends PageElement {
+  constructor() {
+    super();
+    document.addEventListener('scroll', () => {
+      const items = [...document.getElementsByClassName('text-block')].reduce(
+        (acc, val) => {
+          if (acc.getBoundingClientRect().top < 0) return val;
+          if (
+            val.getBoundingClientRect().top < acc.getBoundingClientRect().top
+          ) {
+            return val;
+          }
+          return acc;
+        },
+        { getBoundingClientRect: () => ({ top: -1 }) }
+      );
+
+      [...document.getElementsByClassName('text-block')].forEach((element) => {
+        element.classList.remove('high');
+      });
+      items.classList.add('high');
+    });
+  }
+
   static get styles() {
     return css`
       .guide-wrapper {
@@ -429,8 +450,7 @@ export class PageGuide extends PageElement {
 
   render() {
     return html`
-      <section class="status-container card">
-        <img src="images/animated-icon.svg" class="loader" />
+      <section class="not-found to-top">
         <div class="guide-wrapper">
           <div class="left-block">
             <div class="text-block">
@@ -479,29 +499,23 @@ export class PageGuide extends PageElement {
           </div>
           <div class="divider"></div>
           <div class="right-block">
-            <fc-tabs>
+            <fc-tabs style="position: sticky; top: 0; display: block; align-self: flex-start;">
               <fc-link slot="tab">server.js</fc-link> 
-              <fc-link slot="tab">forter.json</fc-link>
               <fc-link slot="tab">merchant.json</fc-link>
+              <fc-link slot="tab">forter.json</fc-link>
+              
               <section slot="section">
-                <fc-code-block language="javascript">${code}</fc-code-block>
+                <fc-code-block style="height: 95vh; overflow-y: scroll;" language="javascript">${code}</fc-code-block>
               </section> 
               <section slot="section">
-                <fc-code-block language="json">${code2}</fc-code-block>
+                <fc-code-block style="height: 95vh; overflow-y: scroll;" language="json">${code3}</fc-code-block>
               </section>
               <section slot="section">
-                <fc-code-block language="json">${code3}</fc-code-block>
+                <fc-code-block style="height: 95vh; overflow-y: scroll;" language="json">${code2}</fc-code-block>
               </section>
             </fc-tabs>
           </div>
         </div>
-        <button
-          class="right"
-          @click="${() => redirect('overview')}">
-          <div class="error-icon">!</div>
-          Go to dashboard!  
-        </button>
-
       </section>
     `;
   }
