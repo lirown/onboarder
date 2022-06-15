@@ -55,6 +55,7 @@ export class PageOverview extends PageElement {
     if (this.clickedOnStart === 'true') {
       return redirect('guide');
     }
+    window.localStorage.setItem('clickedOnStart', 'true');
     return redirect('integration');
   }
 

@@ -1,5 +1,6 @@
 import { html, css } from '../components/base';
 import { PageElement } from '../components';
+import { redirect } from '../services/router';
 
 const code = `
 // This example is built using express
@@ -495,7 +496,14 @@ export class PageGuide extends PageElement {
                 In order to get a clear payment status, you can use our webhook and we will inform you.
               </p>
             </div>
-            
+             <button
+              class="right"
+              @click="${() => redirect('reward')}"
+            >
+              <div class="error-icon"><</div>
+              Get your reward
+            </button>
+           
           </div>
           <div class="divider"></div>
           <div class="right-block">
